@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadaqat Ali</title>
+</head>
+
+<body>
+    <div class="toggle_div">
+        <h2>
+            Task 1:
+        </h2>
+        <p>
+            Enter Any Number to sum...
+            <small>Enter 0 to show result!</small>
+        </p>
+
+        <button onclick="task1()">
+            Start
+        </button>
+        <p id="result1">
+
+        </p>
+    </div>
+
+    <div class="toggle_div">
+        <h2>
+            Task 2:
+        </h2>
+        <button onclick="task2()">
+            Start
+        </button>
+        <p id="result2">
+
+        </p>
+    </div>
+    <div class="toggle_div">
+        <h2>
+            Task 3:
+        </h2>
+        <button onclick="task3()">
+            Start
+        </button>
+        <p id="result3">
+
+        </p>
+    </div>
+
+    <div>
+        <h2>
+            Task 4
+        </h2>
+        <button id="toggle">
+            Toggle
+        </button>
+        <br/><br/>
+        <button id="enlarge">
+            Enlarge
+        </button>
+        <br/><br/>
+        <button id="original">
+            Original
+        </button>
+        <br/><br/>
+        <button id="reduce">
+            Reduce
+        </button>
+    </div>
+
+    <div>
+        <h2>
+            Task 5
+        </h2>
+        <div id="paras-wrapper">
+            <p>
+                <b>
+                    Para 1:
+                </b>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, saepe? Similique a voluptates, blanditiis 
+                architecto odit ut quos rerum tenetur adipisci amet ab soluta consequuntur numquam, atque quo? Architecto, 
+                natus!
+            </p>
+            <p>
+                <b>
+                    Para 2:
+                </b>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, saepe? Similique a voluptates, blanditiis 
+                architecto odit ut quos rerum tenetur adipisci amet ab soluta consequuntur numquam, atque quo? Architecto, 
+                natus!
+            </p>
+            <p>
+                <b>
+                    Para 3:
+                </b>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, saepe? Similique a voluptates, blanditiis 
+                architecto odit ut quos rerum tenetur adipisci amet ab soluta consequuntur numquam, atque quo? Architecto, 
+                natus!
+            </p>
+            <p>
+                <b>
+                    Para 4:
+                </b>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, saepe? Similique a voluptates, blanditiis 
+                architecto odit ut quos rerum tenetur adipisci amet ab soluta consequuntur numquam, atque quo? Architecto, 
+                natus!
+            </p>
+            <p>
+                <b>
+                    Para 5:
+                </b>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, saepe? Similique a voluptates, blanditiis 
+                architecto odit ut quos rerum tenetur adipisci amet ab soluta consequuntur numquam, atque quo? Architecto, 
+                natus!
+            </p>
+        </div>
+        <button id="odd">
+            Odd
+        </button> &emsp;
+        <button id="even">
+            Even
+        </button> &emsp;
+        <button id="first">
+            First
+        </button> &emsp;
+        <button id="last">
+            Last
+        </button> &emsp;
+        <button id="nth">
+            nth
+        </button> &emsp;
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <script>
+        function sum() {
+            do {
+                num.push(parseInt(window.prompt("Enter Number from 1-9 and 0 for exit")));
+
+                //total += num;
+                //document.getElementById("result").innerHTML = "Sum is : " + total;
+            } while (num[num.length - 1] != 0)
+
+            var total = num.reduce(function (a, b) {
+                return a + b;
+            }, 0);
+
+            var text = num.map((item) => item);
+
+            document.getElementById("result1").innerHTML = "Sum of " + text + " is : " + total;
+        }
+        function task1() {
+            var num = [];
+            var total = 0;
+            do {
+                num.push(parseInt(window.prompt("Enter Number from 1-9 and 0 for exit")));
+
+                //total += num;
+                //document.getElementById("result").innerHTML = "Sum is : " + total;
+            } while (num[num.length - 1] != 0)
+
+            var total = num.reduce(function (a, b) {
+                return a + b;
+            }, 0);
+
+            var text = num.map((item) => item);
+
+            document.getElementById("result1").innerHTML = "Sum of " + text + " is : " + total;
+        }
+
+        function task2() {
+            var ans = window.prompt("What is the Capital City of Pakistan?")
+            if (ans.toLowerCase() == "islamabad") {
+                document.getElementById("result2").innerHTML = "<b> Answer is Correct </b>"
+            } else {
+                document.getElementById("result2").innerHTML = "<b> Answer is Wrong <b>"
+            }
+        }
+
+
+        function task3() {
+            var num = window.prompt("Enter Number:");
+            var message = window.prompt("Enter Message:");
+
+            for (let i = 0; i < num; i++) {
+                let br = document.createElement("br")
+                document.getElementById("result3").append(message, br)
+            }
+        }
+
+        
+        $(document).ready(function(){
+            $("#toggle").click(function(){
+                $(".toggle_div").toggle();
+            });
+            $("#enlarge").click(function(){
+                $(".toggle_div").css({ "font-size": "200%"});
+            });
+            $("#original").click(function(){
+                $(".toggle_div").css({ "font-size": "100%"});
+            });
+            $("#reduce").click(function(){
+                $(".toggle_div").css({ "font-size": "50%"});
+            });
+
+            $("#odd").click(function(){
+                $("#paras-wrapper > p").css({ "border": "0"});
+                $("#paras-wrapper > p:nth-child(odd)").css({ "border": "1px solid red"});
+            });
+            $("#even").click(function(){
+                $("#paras-wrapper > p").css({ "border": "0"});
+                $("#paras-wrapper > p:nth-child(even)").css({ "border": "1px solid red"});
+            });
+            $("#first").click(function(){
+                $("#paras-wrapper > p").css({ "border": "0"});
+                $("#paras-wrapper > p:first-child").css({ "border": "1px solid red"});
+            });
+            $("#last").click(function(){
+                $("#paras-wrapper > p").css({ "border": "0"});
+                $("#paras-wrapper > p:last-child").css({ "border": "1px solid red"});
+            });
+            $("#nth").click(function(){
+                var num = window.prompt("Enter number between 1-5 to select a paragraph:")
+                $("#paras-wrapper > p").css({ "border": "0"});
+                $("#paras-wrapper > p:nth-child("+num+")").css({ "border": "1px solid red"});
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>
